@@ -19,7 +19,7 @@ const ENV = 'DEV';
 const app = express();
 app.get('/', (req, res) => {
   res.statusCode = 200;
-  const msg = 'Hello from from Dhiraj-Borawat007, this was awesome-Devops Journey';
+  const msg = 'Hello from from Dhiraj-Borawat, this was awesome-Devops Journey';
   res.send(getPage(msg));
 });
 
