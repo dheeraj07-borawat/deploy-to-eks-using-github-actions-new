@@ -1,0 +1,37 @@
+name: Node js app deploy to MINIKUBE
+on:
+  push:
+    branches: [ "minikube" ]
+  pull_request:
+    branches: [ "minikube" ]
+
+jobs:
+    deploy-minikube:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Build, tag, and push docker image to Minikube registry
+          uses: actions/checkout@v3.5.3
+      
+        - name: Build, tag, and push docker image to Minikube registry
+          env:
+            REGISTRY: localhost:8080  # Minikube Docker registry
+            REPOSITORY: vanshu07/primus:latest
+            IMAGE_TAG: latest
+          run: |
+            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+            docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+        - name: Configure kubectl for Minikube
+          run: minikube update-context
+
+        - name: Deploy to Minikube
+          run: |
+            kubectl apply -f deployment.yaml
+            kubectl apply -f service.yaml
+
+        
+
+
+    
+      
+
