@@ -27,6 +27,9 @@ jobs:
             docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
         - name: Configure kubectl for Minikube
+          run: minikube version
+          run: minikube status 
+          run: minikube start 
           run: minikube update-context
 
         - name: Deploy to Minikube
