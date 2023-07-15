@@ -19,7 +19,7 @@ jobs:
             DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
             REGISTRY: docker.io
-            REPOSITORY: primus
+            REPOSITORY: vanshu07/primus
             IMAGE_TAG: latest
           run: |
             echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
