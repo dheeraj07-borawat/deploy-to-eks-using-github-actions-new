@@ -18,10 +18,12 @@ jobs:
           env:
             DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+            REPOSITORY: primus
+            IMAGE_TAG: latest
           run: |
             echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-            docker build -t myimage:latest .
-            docker push myimage:latest
+            docker build -t $REPOSITORY:$IMAGE_TAG .
+            docker push $REPOSITORY:$IMAGE_TAG
 
         - name: Configure kubectl for Minikube
           run: minikube update-context
