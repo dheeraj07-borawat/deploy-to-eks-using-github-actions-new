@@ -14,7 +14,7 @@ jobs:
       
         - name: Build, tag, and push docker image to Minikube registry
           env:
-            REGISTRY: localhost:8080  # Minikube Docker registry
+            REGISTRY: #localhost:8080  # Minikube Docker registry
             REPOSITORY: vanshu07/primus
             IMAGE_TAG: latest
           run: |
