@@ -28,9 +28,9 @@ jobs:
 
         - name: Configure kubectl for Minikube
           run: |
-            minikube version
-            minikube status 
+            minikube version 
             minikube start 
+            minikube status
             minikube update-context
 
         - name: Deploy to Minikube
