@@ -31,6 +31,7 @@ jobs:
             minikube version 
             minikube start 
             minikube status
+            kubectl config set-context minikube
             minikube update-context
 
         - name: Deploy to Minikube
